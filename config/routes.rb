@@ -1,7 +1,11 @@
 Nith::Application.routes.draw do
 
   devise_for :users
-
+  devise_scope :user do
+    match 'login' => 'devise/sessions#create'
+    match 'logout' => 'devise/sessions#destroy'
+    match 'register' => 'devise/registrations#new'
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
