@@ -4,14 +4,35 @@
   <title>Nith</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <header>
+      <nav class="round">
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <%- if current_user -%>
+            <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path %> or <%= link_to "Register", register_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
 
-<%= yield %>
+    <section class="round">
+      <%- if notice -%>
+        <p class="notice"><%= notice %></p>
+      <%- end -%>
+      <%- if alert -%>
+        <p class="alert"><%= alert %></p>
+      <%- end -%>
+      <%= yield %>
+    </section>
 
+  </div>
 </body>
 </html>

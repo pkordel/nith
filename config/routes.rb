@@ -2,7 +2,7 @@ Nith::Application.routes.draw do
 
   devise_for :users
   devise_scope :user do
-    match 'login' => 'devise/sessions#create'
+    match 'login' => 'devise/sessions#new'
     match 'logout' => 'devise/sessions#destroy'
     match 'register' => 'devise/registrations#new'
   end
