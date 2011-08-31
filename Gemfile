@@ -14,8 +14,11 @@ end
 
 gem 'jquery-rails'
 
-group :development, :test do
+group :development do
   gem 'heroku'
+end
+
+group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
 end
