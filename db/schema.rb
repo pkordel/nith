@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831190959) do
+ActiveRecord::Schema.define(:version => 20110901183457) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "goals", :force => true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.boolean  "completed"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_items", :force => true do |t|
+    t.integer  "goal_id"
+    t.text     "comment"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "log_items", ["goal_id"], :name => "index_log_items_on_goal_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

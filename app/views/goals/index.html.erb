@@ -1,0 +1,29 @@
+<h1>Listing goals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Completed</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @goals.each do |goal| %>
+  <tr>
+    <td><%= goal.name %></td>
+    <td><%= goal.category %></td>
+    <td><%= goal.completed? ? 'Ja' : 'Nei' %></td>
+    <td><%= link_to 'Show', goal %></td>
+    <td><%= link_to 'Log progress', new_goal_log_item_path(goal) %></td>
+    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+    <td><%= link_to 'Destroy', goal, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Goal', new_goal_path %>

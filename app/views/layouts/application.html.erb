@@ -13,7 +13,9 @@
       <nav class="round">
         <ul>
           <li><%= link_to "Home", root_path %></li>
-          <%- if current_user -%>
+          <%- if user_signed_in? -%>
+            <li><%= link_to "Goals", goals_path %></li>
+            <li><%= link_to "Categories", categories_path %></li>
             <li><%= link_to "Logout", logout_path %></li>
           <% else %>
             <li><%= link_to "Login", login_path %> or <%= link_to "Register", register_path %></li>

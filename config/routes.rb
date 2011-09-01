@@ -1,4 +1,10 @@
 Nith::Application.routes.draw do
+  
+  resources :categories
+
+  resources :goals do
+    resources :log_items
+  end
 
   devise_for :users
   devise_scope :user do
@@ -7,7 +13,7 @@ Nith::Application.routes.draw do
     match 'register' => 'devise/registrations#new'
   end
   
-  root :to => 'home#index'
+  root :to => 'goals#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
