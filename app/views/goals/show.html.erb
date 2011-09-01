@@ -16,10 +16,10 @@
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @goal.user_id %>
+  <%- @goal.log_items.each do |item| -%>
+    <%= item.comment %>: <%= item.score %><br />
+  <%- end -%>
 </p>
-
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>

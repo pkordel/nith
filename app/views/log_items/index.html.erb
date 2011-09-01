@@ -1,4 +1,4 @@
-<h1>Listing log_items</h1>
+<h1>Listing log items</h1>
 
 <table>
   <tr>
@@ -15,9 +15,9 @@
     <td><%= log_item.goal.name %></td>
     <td><%= log_item.comment %></td>
     <td><%= log_item.score %></td>
-    <td><%# link_to 'Show', goal_log_item_path(@goal, log_item) %></td>
-    <td><%# link_to 'Edit', edit_log_item_path(log_item) %></td>
-    <td><%# link_to 'Destroy', log_item, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', [@goal, log_item] %></td>
+    <td><%= link_to 'Edit', edit_goal_log_item_path(@goal, log_item) %></td>
+    <td><%= link_to 'Destroy', [@goal, log_item], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

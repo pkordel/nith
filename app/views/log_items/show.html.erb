@@ -2,7 +2,7 @@
 
 <p>
   <b>Goal:</b>
-  <%= @log_item.goal %>
+  <%= @log_item.goal.name %>
 </p>
 
 <p>
@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_log_item_path(@log_item) %> |
-<%= link_to 'Back', log_items_path %>
+<%= link_to 'Edit', edit_goal_log_item_path(@goal, @log_item) %> |
+<%= link_to 'Back', goal_log_items_path %>
