@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Category</th>
     <th>Completed</th>
+    <th>Score</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,6 +17,7 @@
     <td><%= goal.name %></td>
     <td><%= goal.category %></td>
     <td><%= goal.completed? ? 'Ja' : 'Nei' %></td>
+    <td><%= goal.log_items.sum(:score) %></td>
     <td><%= link_to 'Show', goal %></td>
     <td><%= link_to 'Log progress', new_goal_log_item_path(goal) %></td>
     <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
